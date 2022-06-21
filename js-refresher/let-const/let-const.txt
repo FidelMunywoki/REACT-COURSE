@@ -1,0 +1,4 @@
+let -- new var
+const - for constants
+-------------------------------------
+use jsbin.com to execute js code.

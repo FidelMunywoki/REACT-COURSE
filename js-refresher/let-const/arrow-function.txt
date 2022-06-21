@@ -1,0 +1,28 @@
+normal function -----------------
+
+function myFnc(){
+    ----
+}
+
+function printMyName(name){
+  console.log(name);
+}
+
+printMyName('Fidel');
+
+arrow function ----------------
+
+const myFnc = () => {
+    ------
+}
+
+const printMyName = (name) =>{
+  console.log(name);
+}
+
+printMyName('Fidel');
+------------------------------
+
+const multiply = number => number * 4;
+
+console.log(multiply(23))
