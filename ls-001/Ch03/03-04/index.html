@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>react</title>
+</head>
+<body>
+
+    <!-- Displaying images with React -->
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        //create a function ----- component
+
+        function Header (props) {
+            console.log(props)
+            return (
+                <header>
+                    <h1>{props.name}'s Kitchen</h1>
+                    </header>
+            );
+        }
+
+        function Main(props) {
+            return (
+                <section>
+                    <img
+                      height = {200} 
+                      src="restaurant-image.jpeg" alt="foodie image"/>
+                  <ul>
+                    {props.dishes.map((dish) => (
+                        <li key={dish.id}> {dish.title}</li>
+                    ))}
+                    
+                   </ul>
+                    </section>
+
+            );
+        }
+
+        function Footer(props) {
+            return (
+                <footer>
+                    <p>Copyright {props.year}</p>
+                    
+                </footer>
+            );
+        }
+
+        // list of foods --array
+        const dishes = [
+            "Black Beans Soup",
+            "Macaroni and Cheese",
+            "Salmon and Potatoes",
+            "Pizza",
+            "Frys"
+        ]
+
+        //data transformation
+        const dishObjects = dishes.map(
+            (dish, i) => ({
+                id: i,
+                title: dish
+            })
+        )
+
+        // for rendering both header and main
+
+        function App() {
+            return (
+                <React.Fragment> 
+                    <Header name = "Munywoki"/>
+                    <Main 
+                       adjective= "delicious"
+                       dishes = {dishObjects}/>  
+                    <Footer year = {new Date().getFullYear()}/>
+                    
+                </React.Fragment>
+                // fix div cascading display by the use of react fragment.
+                // root div then components
+                //without fragmentment --> root div, display div, the react components
+            );
+        }
+        
+        ReactDOM.render(
+           <App/>,
+          
+            document.getElementById("root")
+        );
+    </script>
+    
+</body>
+</html>

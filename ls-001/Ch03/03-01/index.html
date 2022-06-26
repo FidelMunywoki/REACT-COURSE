@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>react</title>
+</head>
+<body>
+
+    <!-- creating a react component -->
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        //create a function ----- component
+
+        function Header (props) {
+            console.log(props)
+            return (
+                <header>
+                    <h1>{props.name}'s Kitchen</h1>
+                    </header>
+            );
+        }
+
+        function Main(props) {
+            return (
+                <section>
+                    <p>
+                        We serve best  {props.adjective} food around.
+                        </p>
+                    </section>
+
+            );
+        }
+
+        function Footer(props) {
+            return (
+                <footer>
+                    <p>Copyright {props.year}</p>
+                    
+                </footer>
+            )
+        }
+
+        // for rendering both header and main
+
+        function App() {
+            return (
+                <div>
+                    <Header name = "Munywoki"/>
+                    <Main adjective= "delicious"/>
+                    <Footer year = {new Date().getFullYear()}/>
+                    
+                </div>
+            );
+        }
+        
+        ReactDOM.render(
+           <App/>,
+          
+            document.getElementById("root")
+        );
+    </script>
+    
+</body>
+</html>
